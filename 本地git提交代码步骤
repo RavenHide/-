@@ -1,0 +1,12 @@
+1.验证是否能连接到github上：
+  $ ssh -T git@github.com
+2.选择要上传到的远程仓库：
+  $ git remote add origin git@github.com:yourName/yourRepo.git
+3.添加要提交的文件：
+  $ git add filename(你要上传的文件或文件夹的名字)
+4.提交:
+  $ git commit -m "提交的描述（不能为空）"
+5.将文件推送到指定的远程仓库  
+  $ git push origin master(推送到的分支）
+  
+ 注：首次提交，先git pull下，修改完代码后，使用git status可以查看文件的差别，使用git add 添加要commit的文件。
