@@ -1,4 +1,4 @@
-# -用ssh登录一个机器（换过ip地址），提示输入yes后，屏幕不断出现y，只有按ctrl + c结束
+# ip更换后，本地GIT 连接远程仓库 出现的错误
  
 错误是：The authenticity of host 192.168.0.xxx can't be established.
  
