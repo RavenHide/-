@@ -1,0 +1,17 @@
+Recyclerview的知识要点
+
+RecyclerView的四大组件
+  Adapter LayoutManager itemDecoration ItemAnimator
+   
+1.Adapter: 打造通用adapter 和 通用viewholder
+ adapter内部方法的调用流程：
+  registerAdapterDataObserver() onAttachedToRecyclerView() 创建时只调用一次
+  下面方法会随着滑动和插入删除而多次调用
+  getItemCount() getItemViewType() onCreateViewHolder() onBindViewHolder() onViewAttachedToWindow(将holder加入当前屏幕内) onViewDetachedFromWindow(holder不在屏幕内) onViewRecycled(插入新holdler，重用缓存的holder)
+2.ItemDecoration：主要重写的方法 :getItemOffsets() 设置分割线的宽高
+                                onDraw（）和onDrawOver（）
+主要流程是：1.recyclerview中的onMeasure（）中调用measureChild（）计算item的大小，并调用ItemDecoration的getItemOffsets（）来设置item的外间距
+           2.recyclerview中的draw（）中调用super.draw()，然后在super.draw()中调用ItemDecoration的onDraw()方法，然后调用dispatchView来绘制
+       childview，最后才调用ItemDecoration的onDrawOver（）
+       流程总结：ItemDecoration的3个重写方法的调用顺序为：getItemOffsets（） ——> onDraw（）——> onDrawOver（）
+       
